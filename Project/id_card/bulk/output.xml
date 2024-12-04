@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.10.12 on linux)" generated="2024-12-04T10:10:34.778799" rpa="false" schemaversion="5">
+<suite id="s1" name="Bulk" source="/home/buzzadmin/Desktop/id_card_api/Project/id_card/bulk.robot">
+<test id="s1-t1" name="Launch EPFO website" line="88">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-04T10:10:34.874807" level="INFO">/home/buzzadmin/Desktop/id_card_api/Project/id_card/bulk/bulk.txt</msg>
+<arg>${bulk_file}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-04T10:10:34.874651" elapsed="0.000198"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${bulk_file}' == ''</arg>
+<arg>Log</arg>
+<arg>validated_data is empty</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-04T10:10:34.874963" elapsed="0.000136"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-04T10:10:34.875410" level="INFO">validated data is: /home/buzzadmin/Desktop/id_card_api/Project/id_card/bulk/bulk.txt</msg>
+<arg>validated data is: ${bulk_file}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-04T10:10:34.875324" elapsed="0.000114"/>
+</kw>
+<arg>'${bulk_file}' != ''</arg>
+<arg>Log</arg>
+<arg>validated data is: ${bulk_file}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-04T10:10:34.875191" elapsed="0.000282"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Open EPF India Website">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:10:34.876006" level="INFO">Opening browser 'chrome' to base url 'https://www.epfindia.gov.in/site_en/index.php#'.</msg>
+<arg>https://www.epfindia.gov.in/site_en/index.php#</arg>
+<arg>chrome</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-04T10:10:34.875850" elapsed="1.095197"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:10:34.875659" elapsed="1.095567"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:10:34.875542" elapsed="1.095731"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-12-04T10:10:35.971498" elapsed="0.000029"/>
+</kw>
+<kw name="Open EPF India Website">
+<status status="NOT RUN" start="2024-12-04T10:10:35.971688" elapsed="0.000032"/>
+</kw>
+<status status="NOT RUN" start="2024-12-04T10:10:35.971352" elapsed="0.000405"/>
+</branch>
+<status status="PASS" start="2024-12-04T10:10:34.875513" elapsed="1.096291"/>
+</try>
+<kw name="Open EPF India Website">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:10:35.972446" level="INFO">Opening browser 'chrome' to base url 'https://www.epfindia.gov.in/site_en/index.php#'.</msg>
+<arg>https://www.epfindia.gov.in/site_en/index.php#</arg>
+<arg>chrome</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-04T10:10:35.972250" elapsed="1.073150"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:10:35.971926" elapsed="1.073762"/>
+</kw>
+<kw name="Click ECR/Returns/Payment Button">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="ecr_panel_1"]</arg>
+<arg>timeout=30</arg>
+<arg>error=Unbale to launch EPF website..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-04T10:10:37.046469" elapsed="0.023525"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:10:37.070514" level="INFO">Clicking element 'xpath://*[@id="ecr_panel_1"]'.</msg>
+<arg>xpath://*[@id="ecr_panel_1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-04T10:10:37.070261" elapsed="0.085694"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>EPFO: Home</arg>
+<arg>timeout=30s</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-12-04T10:10:37.156357" elapsed="47.734858"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-12-04T10:11:24.891601" elapsed="0.003927"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:10:37.046084" elapsed="47.849715"/>
+</kw>
+<kw name="Accept Popup">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="btnCloseModal"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= Unable to find Alert Popup..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-04T10:11:24.896933" elapsed="0.252190"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:11:25.149743" level="INFO">Clicking button 'xpath://*[@id="btnCloseModal"]'.</msg>
+<arg>xpath://*[@id="btnCloseModal"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.149404" elapsed="0.070518"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-04T10:11:25.220335" level="INFO">Opened EPFO login page</msg>
+<arg>Opened EPFO login page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.220176" elapsed="0.000206"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:11:24.896310" elapsed="0.324154"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:10:34.873942" elapsed="50.346663"/>
+</test>
+<test id="s1-t2" name="Login EPFO Application" line="101">
+<kw name="Enter Username and Password">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="username1"]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unable to find username input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.221401" elapsed="0.015040"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:11:25.236937" level="INFO">Typing text 'BUZZWORKS2012' into text field 'xpath://*[@id="username1"]'.</msg>
+<arg>xpath://*[@id="username1"]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.236664" elapsed="0.092781"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:11:25.329917" level="INFO">Typing text 'Work$2024Bu$$' into text field 'xpath://*[@id="password"]'.</msg>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.329663" elapsed="0.068652"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-04T10:11:25.398734" level="INFO">Entered username and password</msg>
+<arg>Entered username and password</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.398562" elapsed="0.000228"/>
+</kw>
+<status status="PASS" start="2024-12-04T10:11:25.221168" elapsed="0.177717"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-12-04T10:11:40.399351" level="INFO">Slept 15 seconds.</msg>
+<arg>15s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-12-04T10:11:25.399003" elapsed="15.000612"/>
+</kw>
+<kw name="Click Signin Button">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@value="Submit"]</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-04T10:11:40.401622" elapsed="0.033893"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:11:40.436370" level="INFO">Clicking button '//button[@value="Submit"]'.</msg>
+<arg>//button[@value="Submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-04T10:11:40.435931" elapsed="1.484611"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:12:11.536483" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</msg>
+<msg time="2024-12-04T10:12:11.536719" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</msg>
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Payment')]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unable to login EPFO</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-12-04T10:11:41.920962" elapsed="29.618395">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<status status="FAIL" start="2024-12-04T10:11:41.920772" elapsed="29.618735">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//*[@id="digitalJeevanAlertBox"]//*[@id="alertButtton"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.539749" elapsed="0.000030"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Payment')]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unable to login EPFO</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.539887" elapsed="0.000024"/>
+</kw>
+<status status="NOT RUN" start="2024-12-04T10:12:11.539602" elapsed="0.000355"/>
+</branch>
+<status status="FAIL" start="2024-12-04T10:11:41.920725" elapsed="29.619278">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</try>
+<kw name="Log" owner="BuiltIn">
+<arg>Successfully logging EPFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.540115" elapsed="0.000024"/>
+</kw>
+<status status="FAIL" start="2024-12-04T10:11:40.400796" elapsed="31.139490">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${visible}</var>
+<arg>Element should be Visible</arg>
+<arg>//*[@id="appletModal"]/div/div/div[1]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.540428" elapsed="0.000022"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${visible} == True</arg>
+<arg>Log</arg>
+<arg>First alert handled successfully</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.540542" elapsed="0.000018"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//*[@id="appletModal"]/div/div/div[1]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.540629" elapsed="0.000013"/>
+</kw>
+<status status="FAIL" start="2024-12-04T10:11:25.220835" elapsed="46.319937">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t3" name="uploading file" line="114">
+<kw name="Go to the member">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-12-04T10:12:11.553537" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</msg>
+<msg time="2024-12-04T10:12:11.553781" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</msg>
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Member')]</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-12-04T10:12:11.542864" elapsed="0.011165">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Member')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.554346" elapsed="0.000035"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//ul[@class='dropdown-menu m1']//a[text()='REGISTER-BULK']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.554503" elapsed="0.000025"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//ul[@class='dropdown-menu m1']//a[text()='REGISTER-BULK']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.554624" elapsed="0.000022"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<arg>//*[@id="bulkRegistrationFile"]</arg>
+<arg>${bulk_file}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.554737" elapsed="0.000021"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div//input[@id='aadhaarConsent']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.554850" elapsed="0.000021"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//div//input[@id='aadhaarConsent']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.554960" elapsed="0.000020"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[contains(text(), 'Submit')]</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555066" elapsed="0.000021"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//button[contains(text(), 'Submit')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555185" elapsed="0.000021"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555296" elapsed="0.000021"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@id="memberDetails"]/div[1]</arg>
+<arg>timeout=30s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555416" elapsed="0.000020"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555535" elapsed="0.000021"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<var>${output_data}</var>
+<arg>'${status}' == 'True'</arg>
+<arg>Get Text</arg>
+<arg>//*[@id="memberDetails"]/div[1]</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>file not uploaded propelry</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555650" elapsed="0.000021"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${data}</var>
+<arg>output_data=${output_data}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555774" elapsed="0.000020"/>
+</kw>
+<kw name="Convert JSON to String" owner="RPA.JSON">
+<var>${json_string}</var>
+<arg>${data}</arg>
+<doc>Convert a JSON serializable object to a string and return it.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.555896" elapsed="0.000021"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${data}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.556001" elapsed="0.000020"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<arg>${OUTPUT_DIR}/output_data.json</arg>
+<arg>${output_data}</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="NOT RUN" start="2024-12-04T10:12:11.556147" elapsed="0.000022"/>
+</kw>
+<status status="FAIL" start="2024-12-04T10:12:11.541533" elapsed="0.014772">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<status status="FAIL" start="2024-12-04T10:12:11.540946" elapsed="0.015540">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</status>
+</test>
+<status status="FAIL" start="2024-12-04T10:10:34.779487" elapsed="96.777567"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="2" skip="0" id="s1" name="Bulk">Bulk</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-04T10:12:11.536483" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</msg>
+<msg time="2024-12-04T10:12:11.553537" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.85)
+Stacktrace:
+#0 0x5c653e61434a &lt;unknown&gt;
+#1 0x5c653e12a6e0 &lt;unknown&gt;
+#2 0x5c653e10038f &lt;unknown&gt;
+#3 0x5c653e1a589d &lt;unknown&gt;
+#4 0x5c653e1bb88c &lt;unknown&gt;
+#5 0x5c653e19d203 &lt;unknown&gt;
+#6 0x5c653e16bcc0 &lt;unknown&gt;
+#7 0x5c653e16cc9e &lt;unknown&gt;
+#8 0x5c653e5e1d3b &lt;unknown&gt;
+#9 0x5c653e5e5cc2 &lt;unknown&gt;
+#10 0x5c653e5ceb6c &lt;unknown&gt;
+#11 0x5c653e5e6837 &lt;unknown&gt;
+#12 0x5c653e5b410f &lt;unknown&gt;
+#13 0x5c653e6035a8 &lt;unknown&gt;
+#14 0x5c653e603770 &lt;unknown&gt;
+#15 0x5c653e6131c6 &lt;unknown&gt;
+#16 0x713b22a94ac3 &lt;unknown&gt;
+</msg>
+</errors>
+</robot>

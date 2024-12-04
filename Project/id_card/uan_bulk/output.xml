@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.10.12 on linux)" generated="2024-12-03T10:32:30.209192" rpa="false" schemaversion="5">
+<suite id="s1" name="Bulk" source="/home/buzzadmin/Desktop/id_card_api/Project/id_card/bulk.robot">
+<test id="s1-t1" name="Launch EPFO website" line="70">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-03T10:32:30.293637" level="INFO">/home/buzzadmin/Desktop/id_card_api/Project/id_card/uan_bulk/uan_bulk.txt</msg>
+<arg>${bulk_file}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-03T10:32:30.293506" elapsed="0.000166"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${bulk_file}' == ''</arg>
+<arg>Log</arg>
+<arg>validated_data is empty</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-03T10:32:30.293762" elapsed="0.000103"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-03T10:32:30.301347" level="INFO">validated data is: /home/buzzadmin/Desktop/id_card_api/Project/id_card/uan_bulk/uan_bulk.txt</msg>
+<arg>validated data is: ${bulk_file}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-03T10:32:30.294061" elapsed="0.007358"/>
+</kw>
+<arg>'${bulk_file}' != ''</arg>
+<arg>Log</arg>
+<arg>validated data is: ${bulk_file}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-03T10:32:30.293941" elapsed="0.007548"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Open EPF India Website">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:30.302130" level="INFO">Opening browser 'chrome' to base url 'https://www.epfindia.gov.in/site_en/index.php#'.</msg>
+<arg>https://www.epfindia.gov.in/site_en/index.php#</arg>
+<arg>chrome</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-03T10:32:30.301980" elapsed="1.378526"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:30.301731" elapsed="1.378990"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:30.301584" elapsed="1.379223"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-12-03T10:32:31.681311" elapsed="0.000077"/>
+</kw>
+<kw name="Open EPF India Website">
+<status status="NOT RUN" start="2024-12-03T10:32:31.681652" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2024-12-03T10:32:31.680933" elapsed="0.000817"/>
+</branch>
+<status status="PASS" start="2024-12-03T10:32:30.301548" elapsed="1.380286"/>
+</try>
+<kw name="Open EPF India Website">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:31.682836" level="INFO">Opening browser 'chrome' to base url 'https://www.epfindia.gov.in/site_en/index.php#'.</msg>
+<arg>https://www.epfindia.gov.in/site_en/index.php#</arg>
+<arg>chrome</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-12-03T10:32:31.682481" elapsed="1.087221"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:31.681997" elapsed="1.087916"/>
+</kw>
+<kw name="Click ECR/Returns/Payment Button">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="ecr_panel_1"]</arg>
+<arg>timeout=30</arg>
+<arg>error=Unbale to launch EPF website..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:32.770666" elapsed="0.022271"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:32.793579" level="INFO">Clicking element 'xpath://*[@id="ecr_panel_1"]'.</msg>
+<arg>xpath://*[@id="ecr_panel_1"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:32.793256" elapsed="0.062707"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>EPFO: Home</arg>
+<arg>timeout=30s</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:32.856298" elapsed="5.782004"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-12-03T10:32:38.638582" elapsed="0.018830"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:32.770193" elapsed="5.887849"/>
+</kw>
+<kw name="Accept Popup">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="btnCloseModal"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= Unable to find Alert Popup..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:38.659257" elapsed="0.283364"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:38.943605" level="INFO">Clicking button 'xpath://*[@id="btnCloseModal"]'.</msg>
+<arg>xpath://*[@id="btnCloseModal"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:38.943121" elapsed="0.126365"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-03T10:32:39.069921" level="INFO">Opened EPFO login page</msg>
+<arg>Opened EPFO login page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-03T10:32:39.069736" elapsed="0.000244"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:38.658544" elapsed="0.411531"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:30.292867" elapsed="8.777376"/>
+</test>
+<test id="s1-t2" name="Login EPFO Application" line="83">
+<kw name="Enter Username and Password">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://*[@id="username1"]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unable to find username input</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:39.071239" elapsed="0.021746"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:39.093881" level="INFO">Typing text 'BUZZWORKS2012' into text field 'xpath://*[@id="username1"]'.</msg>
+<arg>xpath://*[@id="username1"]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:39.093308" elapsed="0.074012"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:39.167731" level="INFO">Typing text 'Work$2024Bu$$' into text field 'xpath://*[@id="password"]'.</msg>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:39.167506" elapsed="0.048285"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-03T10:32:39.216092" level="INFO">Entered username and password</msg>
+<arg>Entered username and password</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-03T10:32:39.215969" elapsed="0.000157"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:39.070921" elapsed="0.145261"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-12-03T10:32:54.216713" level="INFO">Slept 15 seconds.</msg>
+<arg>15s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-12-03T10:32:39.216260" elapsed="15.000760"/>
+</kw>
+<kw name="Click Signin Button">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@value="Submit"]</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:54.218948" elapsed="0.054614"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:54.274689" level="INFO">Clicking button '//button[@value="Submit"]'.</msg>
+<arg>//button[@value="Submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:54.274115" elapsed="1.049971"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Payment')]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unable to login EPFO</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.324899" elapsed="0.033714"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:55.324555" elapsed="0.034172"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>message</pattern>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//*[@id="digitalJeevanAlertBox"]//*[@id="alertButtton"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-12-03T10:32:55.358944" elapsed="0.000029"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Payment')]</arg>
+<arg>timeout=30s</arg>
+<arg>error=Unable to login EPFO</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-12-03T10:32:55.359078" elapsed="0.000026"/>
+</kw>
+<status status="NOT RUN" start="2024-12-03T10:32:55.358800" elapsed="0.000351"/>
+</branch>
+<status status="PASS" start="2024-12-03T10:32:55.324468" elapsed="0.034730"/>
+</try>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-03T10:32:55.359447" level="INFO">Successfully logging EPFO</msg>
+<arg>Successfully logging EPFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.359291" elapsed="0.000202"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:54.217978" elapsed="1.141590"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:55.374285" level="INFO">Element '//*[@id="appletModal"]/div/div/div[1]/button' is displayed.</msg>
+<arg>//*[@id="appletModal"]/div/div/div[1]/button</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.359850" elapsed="0.014538"/>
+</kw>
+<msg time="2024-12-03T10:32:55.374539" level="INFO">${visible} = True</msg>
+<var>${visible}</var>
+<arg>Element should be Visible</arg>
+<arg>//*[@id="appletModal"]/div/div/div[1]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.359690" elapsed="0.014874"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-03T10:32:55.375110" level="INFO">First alert handled successfully</msg>
+<arg>First alert handled successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.374994" elapsed="0.000163"/>
+</kw>
+<arg>${visible} == True</arg>
+<arg>Log</arg>
+<arg>First alert handled successfully</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.374736" elapsed="0.000486"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:55.375531" level="INFO">Clicking button '//*[@id="appletModal"]/div/div/div[1]/button'.</msg>
+<arg>//*[@id="appletModal"]/div/div/div[1]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.375359" elapsed="0.067643"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:39.070514" elapsed="16.372923"/>
+</test>
+<test id="s1-t3" name="uploading file" line="92">
+<kw name="Go to the member">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Member')]</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.445404" elapsed="0.013215"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:55.459218" level="INFO">Clicking element '//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Member')]'.</msg>
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Member')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.458931" elapsed="0.047038"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//ul[@class='dropdown-menu m1']//a[text()='REGISTER-BULK']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.506196" elapsed="0.016773"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-12-03T10:32:55.523472" level="INFO">Clicking element '//ul[@class='dropdown-menu m1']//a[text()='REGISTER-BULK']'.</msg>
+<arg>//ul[@class='dropdown-menu m1']//a[text()='REGISTER-BULK']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-12-03T10:32:55.523225" elapsed="2.057130"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:55.444915" elapsed="2.135629"/>
+</kw>
+<status status="PASS" start="2024-12-03T10:32:55.444111" elapsed="2.136607"/>
+</test>
+<status status="PASS" start="2024-12-03T10:32:30.209907" elapsed="27.371224"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Bulk">Bulk</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
